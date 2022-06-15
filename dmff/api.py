@@ -1994,7 +1994,7 @@ app.forcefield.parsers[
 
 class NonbondJaxGenerator:
 
-    SCALETOL = 1e-5
+    SCALETOL = 1e-3
 
     def __init__(self, hamiltionian, coulomb14scale, lj14scale):
 

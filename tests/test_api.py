@@ -155,5 +155,8 @@ class TestClassicalAPI:
     def test_parse_multiple_files(self):
         pdb = app.PDBFile("tests/data/methane_water.pdb")
         h = Hamiltonian("tests/data/methane.xml", "tip3p.xml")
-        # potentials = h.createPotential(pdb.topology)
-        print(h.getGenerators()[-1].params)
+        potentials = h.createPotential(pdb.topology)
+        npt.assert_allclose(
+            h.getGenerators()[-1].params["charge"],
+            [-0.1068, 0.0267, 0.0267, 0.0267, 0.0267, -0.834, 0.417]
+        )
